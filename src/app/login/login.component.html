@@ -1,0 +1,32 @@
+<body>
+    <div class="header">
+        <img src="/assets/img/Logo-CarDealer.png" alt="system-logo" class="system-logo">
+        <h2>CarDealer</h2>
+    </div>
+
+    <div class="container">
+        <div class="car">
+            <img src="/assets/img/Car-Dealer-BG.png" alt="car">
+        </div>
+
+        <div class="main">  	
+            <div class="login-container">
+                <form [formGroup]="form" class="form">
+                    <label>Login Account</label>
+                    <div class="form-container">
+                        <div>
+                            <input formControlName="email" class="input" type="text" name="email" id="email" placeholder="Enter Email" required>
+                            <input formControlName="password" class="input" type="password" name="pswd" id="pswd" placeholder="Enter Password" required>
+                        </div>
+                        <div>
+                            <button (click)="submitCredentials()" id="login-button" class="login-button">Log in</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="register" (click)="navigateRegister()"><span>Registration</span></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,28 @@
+::ng-deep .mat-dialog-container {
+    background-color: #ffebee; /* Light red background */
+    border: 1px solid #f44336; /* Red border */
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .error-title {
+    color: #f44336; /* Red for error */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .error-content {
+    color: #c62828; /* Darker red for content */
+    font-size: 16px;
+  }
+  
+  .error-button {
+    color: #ffffff; /* White text */
+    background-color: #f44336; /* Red button */
+    border-radius: 4px;
+  }
+  
+  .error-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  

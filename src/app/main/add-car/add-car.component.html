@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="main">  	
+        <div class="add-car-container">
+            <label>Add Car</label>
+            <form [formGroup]="form" class="form">
+                <div class="input-fields">
+                    <input formControlName="make" class="input" type="make" name="make" id="make" placeholder="Enter Make" required>
+                    <input formControlName="description" class="input" type="description" name="description" id="description" placeholder="Enter Description" required>
+                    <input formControlName="model" class="input" type="text" name="model" id="model" placeholder="Enter Model" required>
+                    <input formControlName="year" class="input" type="text" name="year" id="year" placeholder="Enter Year" required>
+                    <input formControlName="price" class="input" type="text" name="price" id="price" placeholder="Enter Price" required>
+                </div>
+                <div>
+                    <button (click)="submitDetails()" id="add-car-button" class="add-car-button">Add Car</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

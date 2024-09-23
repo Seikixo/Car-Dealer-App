@@ -1,0 +1,29 @@
+<body>
+    <div class="header">
+        <img src="/assets/img/Logo-CarDealer.png" alt="system-logo" class="system-logo">
+        <h2>CarDealer</h2>
+    </div>
+
+    <div class="container">
+        <div class="car">
+            <img src="/assets/img/Car-Dealer-BG.png" alt="car">
+        </div>
+
+        <div class="main">  	
+            <div class="register-container">
+                <form [formGroup]="form" class="form">
+                    <label>Register Account</label>
+                    <div class="input-fields">
+                        <input formControlName="email" class="input" type="email" name="email" id="email" placeholder="Enter Email" required>
+                        <input formControlName="password" class="input" type="password" name="pswd" id="pswd" placeholder="Enter Password" required>
+                        <input formControlName="firstname" class="input" type="text" name="firstname" id="firstname" placeholder="Enter First Name" required>
+                        <input formControlName="lastname" class="input" type="text" name="lastname" id="lastname" placeholder="Enter Last Name" required>
+                    </div>
+                    <button (click)="submitCredentials()" id="register-button" class="register-button">Register</button>
+                </form>
+                <div class="cancel" (click)="navigateLogin()"><span>Cancel</span></div>
+            </div>
+        </div>
+    </div>
+
+</body>
