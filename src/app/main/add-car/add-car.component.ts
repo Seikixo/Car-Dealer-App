@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarsService } from '../../services/cars.service';
 import { Router } from '@angular/router';
 import { Cars } from '../../interface/cars';
+import { DialogsService } from 'src/app/services/dialogs.service';
 
 @Component({
   selector: 'app-add-car',
@@ -16,6 +17,7 @@ export class AddCarComponent {
   constructor(
     private formBuilder: FormBuilder,
     private carsService: CarsService,
+    private dialogService: DialogsService,
     private router: Router
   ){
     this.form = this.formBuilder.group({
@@ -30,6 +32,7 @@ export class AddCarComponent {
   submitDetails(){
     if(this.form.valid){
       this.carsService.createCars(this.form.getRawValue()).subscribe(response =>{
+      this.dialogService.openSuccessDialog('The car is registered successfully');
       this.form.reset();
       })
     }

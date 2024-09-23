@@ -42,6 +42,7 @@ export class RegisterComponent {
     else{
       this.userService.registerUser(this.form.getRawValue()).subscribe({
         next: (response) =>{
+          this.dialogService.openSuccessDialog('The user is registered successfully');
           this.router.navigateByUrl('/login');
         },
         error: (error) => {

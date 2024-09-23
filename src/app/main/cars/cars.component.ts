@@ -3,6 +3,7 @@ import { Cars } from 'src/app/interface/cars';
 import { CarsService } from 'src/app/services/cars.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DialogsService } from 'src/app/services/dialogs.service';
 
 @Component({
   selector: 'app-cars',
@@ -32,7 +33,8 @@ export class CarsComponent implements OnInit {
   constructor(
     private carsService: CarsService, 
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialogService: DialogsService
   ) {
     this.filteredCars = this.cars;
     this.form = formBuilder.group({
@@ -99,6 +101,7 @@ export class CarsComponent implements OnInit {
       const updateCar = { ...this.selectedCar, ...this.form.getRawValue() };
       this.carsService.updateCar(this.selectedCar.id, updateCar).subscribe({
         next: () => {
+          this.dialogService.openSuccessDialog('Car update successful');
           this.loadAllCars();
           this.showUpdateForm = false;
           this.selectedCar = null;
