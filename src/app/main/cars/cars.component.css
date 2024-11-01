@@ -195,6 +195,23 @@
     height: 200px;
 }
 
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-container label {
+margin-right: 10px;
+}
+
+.search-container input {
+padding: 5px;
+width: 250px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
 @media (max-width: 768px) {
     .cars-label, .cars-field {
         grid-template-columns: repeat(4, 1fr); /* Adjust for smaller screens */

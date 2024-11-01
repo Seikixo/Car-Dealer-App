@@ -19,6 +19,8 @@ export class CarsComponent implements OnInit {
 
   showUpdateForm: boolean = false;
   selectedCar: Cars | null = null;
+  
+  searchQuery: string = '';
 
   form: FormGroup;
 
@@ -64,17 +66,29 @@ export class CarsComponent implements OnInit {
   }
 
   filterCars() {
+    const query = this.searchQuery.toLowerCase(); // Convert the search query to lowercase
+
     this.filteredCars = this.cars.filter(car => {
+      const carYear = car.year ? car.year.toString() : '';
+
       return (
+        (!query || 
+          car.make.toLowerCase().includes(query) || 
+          car.model.toLowerCase().includes(query) || 
+          carYear.includes(query)
+        ) &&
+
+        // Apply individual filters
         (this.filter.make ? car.make.toLowerCase().includes(this.filter.make.toLowerCase()) : true) &&
         (this.filter.model ? car.model.toLowerCase().includes(this.filter.model.toLowerCase()) : true) &&
         (this.filter.year ? car.year === this.filter.year : true) &&
-        (this.filter.minPrice !== null ? +car.price >= this.filter.minPrice : true) && 
-        (this.filter.maxPrice !== null ? +car.price <= this.filter.maxPrice : true)   
+        (this.filter.minPrice !== null ? car.price >= this.filter.minPrice : true) &&
+        (this.filter.maxPrice !== null ? car.price <= this.filter.maxPrice : true)
       );
     });
-    this.currentPage = 1; 
-    this.updatePaginatedCars(); 
+
+    this.currentPage = 1; // Reset to first page on filter
+    this.updatePaginatedCars(); // Update paginated results
   }
   
 
@@ -85,7 +99,7 @@ export class CarsComponent implements OnInit {
         this.loadAllCars();
       },
       error: (error) => {
-        alert('Failed to delete: ' + error.message);
+        this.dialogService.openErrorDialog('Failed to Delete' + error.message);
       }
     });
   }

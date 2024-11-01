@@ -1,12 +1,9 @@
-import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
-import { UserEntity } from '../models/user.entity';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Observable, from, map, switchMap, of, catchError, throwError, tap, throwIfEmpty } from 'rxjs';
 import { Cars } from '../models/cars.interface';
 import { CarsEntity } from '../models/cars.entity';
-import * as bcrypt from 'bcrypt';
-import { error } from 'console';
 import { AuthService } from 'src/auth/services/auth.service';
 
 @Injectable()

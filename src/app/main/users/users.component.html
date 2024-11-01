@@ -10,6 +10,7 @@
         </div>
         <div></div>
         <div *ngFor="let user of users" class="users-field">
+            <input type="file" name="uploadFile" id="uploadFile">
             <div class="output">{{user.id}}</div>
             <div class="output">{{user.firstname}}</div>
             <div class="output">{{user.lastname}}</div>

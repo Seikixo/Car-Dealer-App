@@ -1,6 +1,16 @@
 <div class="contents">
     <h1>Cars</h1>
 
+    <div class="search-container">
+        <label for="search">Search:</label>
+        <input 
+          type="text" 
+          id="search" 
+          [(ngModel)]="searchQuery" 
+          (input)="filterCars()" 
+          placeholder="Search by Make, Model, or Year">
+      </div>
+
     <div class="filter-container">
         <label for="make">Make:</label>
         <input type="text" id="make" [(ngModel)]="filter.make" (input)="filterCars()" placeholder="Filter by Make">
